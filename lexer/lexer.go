@@ -76,3 +76,9 @@ func (l *Lexer) readIdentifier() string {
 func isLetter(ch byte) bool {
 	return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z' || ch == '_'
 }
+
+var keywards = map[string] token.TokenType{
+	"fn": FUNCTION,
+	"let": LET,
+}
+
