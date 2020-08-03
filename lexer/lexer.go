@@ -43,6 +43,18 @@ func (l *Lexer) NextToken() token.Token {
 		tok = NewToken(token.COMMA, l.ch)
 	case '+':
 		tok = NewToken(token.PLUS, l.ch)
+	case '-':
+		tok = NewToken(token.MINUS, l.ch)
+	case '!':
+		tok = NewToken(token.BANG, l.ch)
+	case '/':
+		tok = NewToken(token.SLASH, l.ch)
+	case '*':
+		tok = NewToken(token.ASTERISK, l.ch)
+	case '<':
+		tok = NewToken(token.LT, l.ch)
+	case '>':
+		tok = NewToken(token.RT, l.ch)
 	case '{':
 		tok = NewToken(token.LBRACE, l.ch)
 	case '}':
@@ -106,6 +118,11 @@ func isDigit(ch byte) bool {
 var keywards = map[string] token.TokenType{
 	"fn": token.FUNCTION,
 	"let": token.LET,
+	"true": token.TRUE,
+	"false": token.FALSE,
+	"if": token.IF,
+	"else": token.ELSE,
+	"return": token.RETURN,
 }
 
 func LookupIdent(ident string) token.TokenType {

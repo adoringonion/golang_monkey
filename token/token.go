@@ -16,6 +16,13 @@ const (
 
 	ASSIGN = "="
 	PLUS = "+"
+	MINUS = "-"
+	BANG = "!"
+	ASTERISK = "*"
+	SLASH = "/"
+
+	LT = "<"
+	RT = ">"
 
 	COMMA = ","
 	SEMICOLON = ";"
@@ -27,4 +34,9 @@ const (
 
 	FUNCTION = "FUNCTION"
 	LET = "LET"
+	TRUE = "TRUE"
+	FALSE = "FALSE"
+	IF = "IF"
+	ELSE = "ELSE"
+	RETURN = "RETURN"
 )
