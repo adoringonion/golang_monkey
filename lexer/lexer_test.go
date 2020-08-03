@@ -60,7 +60,7 @@ func TestNextToken2(t *testing.T) {
 		expectedLiteral string
 	}{
 		{token.LET, "let"},
-		{token.IDENT, "fice"},
+		{token.IDENT, "five"},
 		{token.ASSIGN, "="},
 		{token.INT, "5"},
 		{token.SEMICOLON, ";"},
