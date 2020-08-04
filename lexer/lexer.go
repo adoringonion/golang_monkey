@@ -81,7 +81,7 @@ func (l *Lexer) NextToken() token.Token {
 			tok.Literal = l.readIdentifier()
 			tok.Type = LookupIdent(tok.Literal)
 			return tok
-		} else if  isDigit(l.ch){
+		} else if isDigit(l.ch) {
 			tok.Type = token.INT
 			tok.Literal = l.readNumber()
 			return tok
@@ -138,13 +138,13 @@ func isDigit(ch byte) bool {
 	return '0' <= ch && ch <= '9'
 }
 
-var keywards = map[string] token.TokenType{
-	"fn": token.FUNCTION,
-	"let": token.LET,
-	"true": token.TRUE,
-	"false": token.FALSE,
-	"if": token.IF,
-	"else": token.ELSE,
+var keywards = map[string]token.TokenType{
+	"fn":     token.FUNCTION,
+	"let":    token.LET,
+	"true":   token.TRUE,
+	"false":  token.FALSE,
+	"if":     token.IF,
+	"else":   token.ELSE,
 	"return": token.RETURN,
 }
 
@@ -155,4 +155,3 @@ func LookupIdent(ident string) token.TokenType {
 
 	return token.IDENT
 }
-
