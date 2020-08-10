@@ -2,6 +2,7 @@ package parser
 
 import (
 	"fmt"
+
 	"github.com/adoringonion/golang_monkey/ast"
 	"github.com/adoringonion/golang_monkey/lexer"
 	"github.com/adoringonion/golang_monkey/token"
@@ -61,6 +62,8 @@ func (p *Parser) parseStatement() ast.Statement {
 	switch p.curToken.Type {
 	case token.LET:
 		return p.parseLetStatement()
+	case token.RETURN:
+		return p.parseReturnStatement()
 	default:
 		return nil
 	}
@@ -79,6 +82,18 @@ func (p *Parser) parseLetStatement() *ast.LetStatement {
 	}
 
 	// TODO: セミコロンに遭遇するまで式を読み飛ばしてしまっている
+	for !p.curTokenIs(token.SEMICOLON) {
+		p.nextToken()
+	}
+
+	return stmt
+}
+
+func (p *Parser) parseReturnStatement() *ast.ReturnStatement {
+	stmt := &ast.ReturnStatement{Token: p.curToken}
+
+	p.nextToken()
+
 	for !p.curTokenIs(token.SEMICOLON) {
 		p.nextToken()
 	}
