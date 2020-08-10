@@ -82,7 +82,7 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 	return true
 }
 
-func TestReturnStatement(t *testing.T)  {
+func TestReturnStatement(t *testing.T) {
 	input := `
 		return 5;
 		return 10;
@@ -100,7 +100,6 @@ func TestReturnStatement(t *testing.T)  {
 			len(program.Statements))
 	}
 
-
 	for _, stmt := range program.Statements {
 		returnStmt, ok := stmt.(*ast.ReturnStatement)
 		if !ok {
@@ -114,4 +113,3 @@ func TestReturnStatement(t *testing.T)  {
 		}
 	}
 }
-
