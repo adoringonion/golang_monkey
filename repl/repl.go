@@ -36,7 +36,7 @@ func Start(in io.Reader, out io.Writer) {
 }
 
 
-const HATTO_SHIN = `
+const yaruo = `
 　          ＿＿＿_
 　 　　　／⌒　　   ⌒ ＼
 　　　／  （●） 　（●）  ＼
@@ -46,7 +46,7 @@ const HATTO_SHIN = `
 `
 
 func printParserErrors(out io.Writer, errors []string) {
-	io.WriteString(out, HATTO_SHIN)
+	io.WriteString(out, yaruo)
 	io.WriteString(out, " parser errors:\n")
 	for _, msg := range errors {
 		io.WriteString(out, "\t"+msg+"\n")
