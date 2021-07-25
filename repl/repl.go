@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"os"
 
 	"github.com/adoringonion/golang_monkey/evaluator"
 	"github.com/adoringonion/golang_monkey/lexer"
@@ -16,13 +17,17 @@ func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
 
 	for {
-		fmt.Printf(PROMPT)
+		fmt.Print(PROMPT)
 		scanned := scanner.Scan()
 		if !scanned {
 			return
 		}
 
 		line := scanner.Text()
+		if line == "exit" {
+			fmt.Printf("Good bye")
+			os.Exit(0)
+		}
 		l := lexer.New(line)
 		p := parser.New(l)
 
