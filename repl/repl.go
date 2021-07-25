@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+
+	"github.com/adoringonion/golang_monkey/evaluator"
 	"github.com/adoringonion/golang_monkey/lexer"
 	"github.com/adoringonion/golang_monkey/parser"
 )
@@ -30,15 +32,18 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		io.WriteString(out, program.String())
-		io.WriteString(out, "\n")
+		evaluated := evaluator.Eval(program)
+		if evaluated != nil {
+			io.WriteString(out, evaluated.Inspect())
+			io.WriteString(out, "\n")
+		}
 	}
 }
 
 
 const yaruo = `
-　          ＿＿＿_
-　 　　　／⌒　　   ⌒ ＼
+            ＿＿＿_
+     	／⌒       ⌒ ＼
 　　　／  （●） 　（●）  ＼
 　 ／  ::⌒ (__人__) ⌒::     ＼ 
 　 |　　　　　|r┬-|　　　　　|
