@@ -40,7 +40,6 @@ func Start(in io.Reader, out io.Writer) {
 	}
 }
 
-
 const yaruo = `
             ＿＿＿_
      	／⌒       ⌒ ＼
@@ -57,4 +56,3 @@ func printParserErrors(out io.Writer, errors []string) {
 		io.WriteString(out, "\t"+msg+"\n")
 	}
 }
-
