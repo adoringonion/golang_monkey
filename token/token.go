@@ -42,4 +42,6 @@ const (
 
 	EQ     = "=="
 	NOT_EQ = "!="
+
+	STRING = "STRING"
 )
